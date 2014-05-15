@@ -1,0 +1,12 @@
+if (0 === strpos($name, 'from')) {
+	$format = substr($name, 4);
+
+	return $this->importFrom($format, reset($params));
+}
+
+if (0 === strpos($name, 'to')) {
+	$format = substr($name, 2);
+	$includeLazyLoadColumns = isset($params[0]) ? $params[0] : true;
+
+	return $this->exportTo($format, $includeLazyLoadColumns);
+}
